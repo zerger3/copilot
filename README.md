@@ -12,3 +12,7 @@ Add the Github URL(https://github.com/totalschaden/copilot) to the Auto Updater 
   
 
 ![Picture](https://i.imgur.com/K6rfEwI.png)
+
+
+#### zerger3:  
+i added 2 new custom skills and 1 with movement check 

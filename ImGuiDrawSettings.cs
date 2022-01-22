@@ -674,7 +674,7 @@ namespace CoPilot
                     CoPilot.instance.Settings.customMinUnique3.Value = ImGuiExtension.IntSlider("min Enemy Unique",
                         CoPilot.instance.Settings.customMinUnique3);
                     CoPilot.instance.Settings.MinMsPlayerMoving.Value =
-                        ImGuiExtension.IntSlider("ms since movemed", CoPilot.instance.Settings.MinMsPlayerMoving);
+                        ImGuiExtension.IntSlider("ms since movemed (not working yet)", CoPilot.instance.Settings.MinMsPlayerMoving);
                 }
             }
             catch (Exception e)
