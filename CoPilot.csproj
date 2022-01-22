@@ -38,7 +38,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ExileCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\QH\ExileCore.dll</HintPath>
+      <HintPath>..\..\..\..\..\Games\poe exile api\ExileCore.dll</HintPath>
     </Reference>
     <Reference Include="GameOffsets, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\QH\GameOffsets.dll</HintPath>

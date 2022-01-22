@@ -49,8 +49,12 @@ namespace CoPilot
         internal List<ActorSkill> skills = new List<ActorSkill>();
         private bool updateBladeBlast;
         private List<ActorVaalSkill> vaalSkills = new List<ActorVaalSkill>();
+        //my edit
+        private DateTime lastCustom2;
+        private DateTime lastCustom3;
+        //my edit end
 
-        
+
 
         public override bool Initialise()
         {
@@ -1088,6 +1092,61 @@ namespace CoPilot
                     }
 
                 #endregion
+
+                //my additions
+                #region Custom Skill 2
+
+                if (Settings.customEnabled2)
+                    try
+                    {
+                        if (Gcd() &&
+                            (DateTime.Now - lastCustom2).TotalMilliseconds > Settings.customCooldown2.Value &&
+                            MonsterCheck(Settings.customTriggerRange2, Settings.customMinAny2, Settings.customMinRare2,
+                                Settings.customMinUnique2))
+                            if (player.HPPercentage <= (float)Settings.customHpp2 / 100 ||
+                                player.MaxES > 0 && player.ESPercentage <
+                                (float)Settings.customEsp2 / 100)
+                            {
+                                Keyboard.KeyPress(Settings.customKey2);
+                                lastCustom2 = DateTime.Now;
+                            }
+                    }
+                    catch (Exception e)
+                    {
+                        LogError(e.ToString());
+                    }
+                #endregion
+
+
+
+                //custom skill 3 with movementcheck
+                #region Custom Skill 3
+
+                if
+                (Settings.customEnabled3)
+                    try
+                    {
+                        isMoving = localPlayer.GetComponent<Actor>().isMoving;
+                        if (Gcd() &&
+                            isMoving != true &&
+                            (DateTime.Now - lastCustom3).TotalMilliseconds > Settings.customCooldown3.Value &&
+                            MonsterCheck(Settings.customTriggerRange3, Settings.customMinAny3, Settings.customMinRare3,
+                                Settings.customMinUnique3))
+                            if (player.HPPercentage <= (float)Settings.customHpp3 / 100 ||
+                                player.MaxES > 0 && player.ESPercentage <
+                                (float)Settings.customEsp3 / 100)
+                            {
+                                Keyboard.KeyPress(Settings.customKey3);
+                                lastCustom3 = DateTime.Now;
+                            }
+
+                    }
+                    catch (Exception e)
+                    {
+                        LogError(e.ToString());
+                    }
+                #endregion
+                //my additions end
 
                 #region Custom Skill
 
